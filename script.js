@@ -20,6 +20,7 @@ function getHumanChoice() {
   human_choice = prompt(
     "ENTER A NUMBER:\nChoose:\nFor rock:0\nFor paper:1\nFor scissor:2"
   );
+  human_choice = parseInt(human_choice);
   if (human_choice == 0) {
     console.log("you chose rock");
   }
@@ -67,7 +68,7 @@ function playround(user_choice, computer_choice) {
     }
     if (computer_choice == 1) {
       console.log("you win.you chose scissors and the computer chose paper");
-      computerScore += 1;
+      humanScore += 1;
     }
     if (computer_choice == 2) {
       console.log("draw.you both chose scissors");
