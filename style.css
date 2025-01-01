@@ -23,3 +23,13 @@ button {
   display: flex;
   justify-content: center;
 }
+#scores {
+  display: flex;
+  justify-content: space-around;
+  color: #006caab4;
+  margin: 20px;
+}
+button:hover {
+  color: #061a40;
+  cursor: pointer;
+}

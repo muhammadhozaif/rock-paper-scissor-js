@@ -15,13 +15,13 @@ function getComputerChoice() {
   return comp_rand;
 }
 //to get humans choice of either rock,paper or scissors
-function getHumanChoice() {
-  let human_choice;
-  human_choice = prompt(
-    "ENTER A NUMBER:\nChoose:\nFor rock:0\nFor paper:1\nFor scissor:2"
-  );
-  human_choice = parseInt(human_choice);
-  if (human_choice == 0) {
+function getHumanChoice(human_choice) {
+  // let human_choice;
+  // human_choice = prompt(
+  //  "ENTER A NUMBER:\nChoose:\nFor rock:0\nFor paper:1\nFor scissor:2"
+  //);
+  //human_choice = parseInt(human_choice);
+  /*if (human_choice == 0) {
     console.log("you chose rock");
   }
   if (human_choice == 1) {
@@ -29,53 +29,65 @@ function getHumanChoice() {
   }
   if (human_choice == 2) {
     console.log("you chose scissors");
-  }
+  }*/
   return human_choice;
 }
+let div = document.createElement("div");
 let humanScore = 0;
 let computerScore = 0;
+let pscore = document.querySelector("#pscore");
+let cscore = document.querySelector("#cscore");
+function updatePscore() {
+  pscore.innerHTML = pscore += 1;
+}
+function updateCscore() {
+  cscore.innerHTML = cscore += 1;
+}
+
 function playround(user_choice, computer_choice) {
   if (user_choice == 0) {
     if (computer_choice == 0) {
-      console.log("draw. you both chose rock");
+      div.innerHTML = " draw. you both chose rock";
     }
     if (computer_choice == 1) {
-      console.log("you lose.you chose rock and the computer chose paper");
+      div.innerHTML = "you lose.you chose rock and the computer chose paper";
       computerScore += 1;
     }
     if (computer_choice == 2) {
-      console.log("you win.you chose rock and the computer chose scissors");
+      div.innerHTML = "you win.you chose rock and the computer chose scissors";
       humanScore += 1;
     }
   }
   if (user_choice == 1) {
     if (computer_choice == 0) {
-      console.log("you win.you chose paper and the computer chose rock");
+      div.innerHTML = "you win.you chose paper and the computer chose rock";
       humanScore += 1;
     }
     if (computer_choice == 1) {
-      console.log("draw.you both chose paper");
+      div.innerHTML = "draw.you both chose paper";
     }
     if (computer_choice == 2) {
-      console.log("you lose.you chose paper the computer chose scissors");
+      div.innerHTML = "you lose.you chose paper the computer chose scissors";
       computerScore += 1;
     }
   }
   if (user_choice == 2) {
     if (computer_choice == 0) {
-      console.log("you lose.you chose scissors and the computer chose rock");
+      div.innerHTML = "you lose.you chose scissors and the computer chose rock";
       computerScore += 1;
     }
     if (computer_choice == 1) {
-      console.log("you win.you chose scissors and the computer chose paper");
+      div.innerHTML = "you win.you chose scissors and the computer chose paper";
       humanScore += 1;
     }
     if (computer_choice == 2) {
-      console.log("draw.you both chose scissors");
+      div.innerHTML = "draw.you both chose scissors";
     }
   }
+  document.body.appendChild(div);
 }
-let round = 1;
+
+//let round = 1;
 /*while (round <= 5) {
   playround(getHumanChoice(), getComputerChoice());
   round++;
@@ -88,3 +100,15 @@ if (humanScore > computerScore) {
   console.log(
     `you lose.\n your score: ${humanScore}\ncomputer score:${computerScore}`
   );
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
+rock.addEventListener("click", () => {
+  playround(0, getComputerChoice());
+});
+paper.addEventListener("click", () => {
+  playround(1, getComputerChoice());
+});
+scissors.addEventListener("click", () => {
+  playround(2, getComputerChoice());
+});
