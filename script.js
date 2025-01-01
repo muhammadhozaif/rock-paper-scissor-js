@@ -76,10 +76,10 @@ function playround(user_choice, computer_choice) {
   }
 }
 let round = 1;
-while (round <= 5) {
+/*while (round <= 5) {
   playround(getHumanChoice(), getComputerChoice());
   round++;
-}
+}*/
 if (humanScore > computerScore) {
   console.log(
     `you win.\n your score: ${humanScore}\ncomputer score:${computerScore}`

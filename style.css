@@ -1,0 +1,25 @@
+h1 {
+  font-family: sans-serif;
+  color: #061a40;
+}
+button {
+  border: none;
+  font-family: sans-serif;
+  margin: 40px;
+  color: #006daa;
+}
+#selection {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 36px;
+  color: #0353a4;
+}
+#round {
+  text-align: center;
+  font-family: sans-serif;
+  color: #0353a4;
+}
+#buttons-container {
+  display: flex;
+  justify-content: center;
+}
