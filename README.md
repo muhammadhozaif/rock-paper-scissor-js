@@ -1,97 +1,71 @@
-# Rock, Paper, Scissors Game
+# Rock-Paper-Scissors Game
 
-A simple implementation of the classic Rock, Paper, Scissors game in JavaScript. The game pits the user against the computer, where each round both the user and the computer make a choice. The game then determines the winner based on the rules:
-
-- Rock beats Scissors
-- Scissors beats Paper
-- Paper beats Rock
-
-The game consists of 5 rounds, and at the end, the winner is announced based on the accumulated scores.
-
-## How to Play
-
-1. The user will be prompted to choose either Rock, Paper, or Scissors by entering a number:
-   - `0` for Rock
-   - `1` for Paper
-   - `2` for Scissors
-2. The computer will make its own random choice from the same options.
-3. The winner of each round is decided based on the following rules:
-   - Rock beats Scissors
-   - Scissors beats Paper
-   - Paper beats Rock
-4. The game will continue for 5 rounds.
-5. At the end, the final scores will be displayed, showing whether the user won or lost.
+This is a simple Rock-Paper-Scissors game implemented using HTML, CSS, and JavaScript. The game allows a player to compete against the computer, with both the player and the computer choosing between rock, paper, or scissors. The game runs for five rounds and displays the score after each round, along with the final result.
 
 ## Features
 
-- Random computer choice for each round.
-- User input to choose Rock, Paper, or Scissors.
-- Score tracking across 5 rounds.
-- Detailed round results in the console (whether you win, lose, or draw).
-- Final score and winner displayed after 5 rounds.
+- **Interactive**: The player can select Rock, Paper, or Scissors by clicking buttons.
+- **Score Tracking**: The game keeps track of both the player's score and the computer's score.
+- **Round Limit**: The game ends after 5 rounds, with the winner being determined based on the score.
+- **Dynamic Display**: Results and scores are displayed dynamically after each round.
 
-## Code Explanation
+## How It Works
 
-### `getComputerChoice()`
+### Game Logic
 
-This function generates a random choice for the computer, selecting between Rock, Paper, and Scissors. The random selection is represented by the numbers 0, 1, and 2.
+- The player selects one of three options: Rock (0), Paper (1), or Scissors (2).
+- The computer randomly selects one of the three options.
+- The choices are compared, and the winner of the round is determined:
+  - Rock beats Scissors.
+  - Paper beats Rock.
+  - Scissors beats Paper.
+- A round can end in a draw if both the player and the computer choose the same option.
 
-### `getHumanChoice()`
+### Scoring
 
-Prompts the user to choose between Rock, Paper, or Scissors. The user is asked to input a number:
-- `0` for Rock
-- `1` for Paper
-- `2` for Scissors
+- Each time the player wins a round, their score is incremented by 1.
+- Similarly, the computer's score is updated when the computer wins a round.
+- After 5 rounds, the game will display whether the player has won or lost based on the scores.
 
-### `playround()`
+### Game Flow
 
-This function compares the user's and computer's choices and determines the outcome of each round:
-- If both choices are the same, it’s a draw.
-- Otherwise, it determines whether the user wins or loses based on the rules.
+1. The game starts with 0 rounds.
+2. After each round, the round number is updated, and the current scores are displayed.
+3. If the round limit of 5 is reached, the game ends, and the winner is displayed.
 
-### `while` Loop
+## Files
 
-The game runs for 5 rounds. After each round, the current score is updated, and the result is printed.
+- **index.html**: The main HTML file where the game interface is located.
+- **styles.css**: CSS file for styling the game interface.
+- **script.js**: JavaScript file that implements the logic of the game.
 
-### Final Result
+## How to Play
 
-At the end of 5 rounds, the program checks the scores and prints whether the user wins or loses based on their performance.
+1. Open the game in a web browser.
+2. Click on the **Rock**, **Paper**, or **Scissors** buttons to choose your move.
+3. The game will display the result of each round and update the score.
+4. After 5 rounds, the game will show whether you won or lost and reset the scores.
 
-## Example
+## Code Breakdown
 
-```bash
-ENTER A NUMBER:
-Choose:
-For rock:0
-For paper:1
-For scissor:2
+### getComputerChoice()
+
+The `getComputerChoice` function generates a random number (0, 1, or 2) to simulate the computer's choice of Rock, Paper, or Scissors. The function then returns the corresponding value to be compared with the player's choice.
+
+```javascript
+function getComputerChoice() {
+  let comp_rand = Math.floor(Math.random() * 3);
+  let comp_selection;
+  if (comp_rand == 0) {
+    comp_selection = "rock";
+  }
+  if (comp_rand == 1) {
+    comp_selection = "paper";
+  }
+  if (comp_rand == 2) {
+    comp_selection = "scissors";
+  }
+  console.log(`computer chose ${comp_selection}`);
+  return comp_rand;
+}
 ```
-
-After 5 rounds, the output could look like:
-
-```bash
-you win.
-your score: 3
-computer score: 2
-```
-
-Or:
-
-```bash
-you lose.
-your score: 2
-computer score: 3
-```
-
-## Requirements
-
-- A web browser with developer tools to run the JavaScript.
-- Console access to view the prompts and results.
-
-## License
-
-This project is open source. Feel free to modify or extend it!
-
----
-
-Enjoy playing Rock, Paper, Scissors!
