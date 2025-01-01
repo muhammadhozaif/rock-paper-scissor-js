@@ -38,10 +38,12 @@ let computerScore = 0;
 let pscore = document.querySelector("#pscore");
 let cscore = document.querySelector("#cscore");
 function updatePscore() {
-  pscore.innerHTML = pscore += 1;
+  humanScore = humanScore + 1;
+  pscore.innerHTML = humanScore;
 }
 function updateCscore() {
-  cscore.innerHTML = cscore += 1;
+  computerScore = computerScore + 1;
+  cscore.innerHTML = computerScore;
 }
 
 function playround(user_choice, computer_choice) {
@@ -51,34 +53,33 @@ function playround(user_choice, computer_choice) {
     }
     if (computer_choice == 1) {
       div.innerHTML = "you lose.you chose rock and the computer chose paper";
-      computerScore += 1;
+      updateCscore();
     }
     if (computer_choice == 2) {
       div.innerHTML = "you win.you chose rock and the computer chose scissors";
-      humanScore += 1;
+      updatePscore();
     }
   }
   if (user_choice == 1) {
     if (computer_choice == 0) {
       div.innerHTML = "you win.you chose paper and the computer chose rock";
-      humanScore += 1;
+      updatePscore();
     }
     if (computer_choice == 1) {
       div.innerHTML = "draw.you both chose paper";
     }
     if (computer_choice == 2) {
       div.innerHTML = "you lose.you chose paper the computer chose scissors";
-      computerScore += 1;
+      updateCscore();
     }
   }
   if (user_choice == 2) {
     if (computer_choice == 0) {
       div.innerHTML = "you lose.you chose scissors and the computer chose rock";
-      computerScore += 1;
+      updateCscore();
     }
     if (computer_choice == 1) {
       div.innerHTML = "you win.you chose scissors and the computer chose paper";
-      humanScore += 1;
     }
     if (computer_choice == 2) {
       div.innerHTML = "draw.you both chose scissors";
